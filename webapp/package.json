@@ -1,0 +1,26 @@
+{
+  "name": "delivery-route-optimizer",
+  "version": "1.0.0",
+  "description": "A minimal Delivery route planning application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --watch index.html --watch main.js --watch renderer.js -e html,js --exec \"npm run start\""
+  },
+  "repository": "https://github.com/aagraw2/delivery-route-optimizer",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Amit Agrawal",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.1.11"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
