@@ -110,8 +110,6 @@ public class AreaMap {
 
     public void reset() {
         this.mapMatrix = MapLoaderUtil.convertMapToMatrix();
-        this.columns = this.mapMatrix[0].length;
-        this.rows = this.mapMatrix.length;
         this.source=null;
         this.destinationList.clear();
     }

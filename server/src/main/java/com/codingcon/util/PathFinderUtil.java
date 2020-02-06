@@ -13,10 +13,6 @@ public class PathFinderUtil {
     @Autowired
     AreaMap areaMap;
 
-    Map<String, Integer> nodes = new HashMap<>();
-    Map<Integer, String> intNodes = new HashMap<>();
-    //TODO: Finder a better way store this two-way mapping
-
     public String findTourPath() throws Exception {
 
     //Todo: Add custom exceptions, surround with try-catch block
@@ -27,6 +23,10 @@ public class PathFinderUtil {
         if(areaMap.getDestinations().isEmpty()){
             throw new Exception("Destination not present");
         }
+
+        //TODO: Finder a better way store this two-way mapping
+        Map<String, Integer> nodes = new HashMap<>();
+        Map<Integer, String> intNodes = new HashMap<>();
         nodes.put(areaMap.getSource(),0);
         intNodes.put(0,areaMap.getSource());
         areaMap.getDestinations().forEach((v)-> {
@@ -172,8 +172,10 @@ public class PathFinderUtil {
 
         //backtrack
         current=current.getPreviousMapCell();
-        while (current.getPreviousMapCell() != null) {
-            areaMap.setValue(AppConstants.OUTPUT_PATH,current.getRowNumber(),current.getColNumber());
+        while (current != null) {
+            if(areaMap.getValue(current.getRowNumber(),current.getColNumber())==AppConstants.PATH) {
+                areaMap.setValue(AppConstants.OUTPUT_PATH, current.getRowNumber(), current.getColNumber());
+            }
             current = current.getPreviousMapCell();
         }
     }
