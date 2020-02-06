@@ -6,3 +6,9 @@ Steps to run:
 3. execute "npm run dev"
 
 
+Actions in GUI:
+
+Set Source: SHIFT + Mouse left click
+add/remove Destination : Mouse left click
+Find optimized path: click on find path button
+Restart: Reset Map
